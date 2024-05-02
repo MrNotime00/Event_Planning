@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Planning Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Event Planning</h1>
+    </header>
+    <nav>
+        <ul id="navLinks">
+            <li><a href="#" id="homeLink">Home</a></li>
+            <li><a href="#" id="eventsLink">Events</a></li>
+            <li><a href="#" id="calendarLink">Calendar</a></li>
+            <li><a href="#" id="loginLink">Login</a></li>
+            <li style="display: none;" id="logoutLink"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <main id="mainContent">
+        <section id="homePage" class="page active">
+            <h2>Welcome to Event Planning Website</h2>
+            <p style="font-size: 20px;"> Event planning is the meticulous art of orchestrating every aspect of a gathering, from conception to execution, 
+                to ensure a seamless and memorable experience. It involves translating a client's vision and desires into a tangible 
+                event that reflects their personality, style, and objectives. Event planners are adept at navigating the intricate details
+                 of venue selection, theme development, vendor coordination, budget management, and timeline organization. With creativity, 
+                 attention to detail, and a deep understanding of their client's needs, event planners transform ideas into reality, curating 
+                 unique and unforgettable experiences for every occasion. From intimate celebrations like birthdays and engagements to grand 
+                 affairs like weddings and corporate galas, event planners bring expertise, precision, and passion to every event, ensuring that
+                  each moment is cherished and every guest leaves with lasting memories.</p>
+                  <div id="eventTypes" style="margin-left: 270px;">
+                    <div class="event-type" onclick="selectEventType('Birthday')">
+                        <img src="birthday.jpg" alt="Birthday">
+                        <p>Birthday</p>
+                    </div>
+                    <div class="event-type" onclick="selectEventType('Wedding')">
+                        <img src="wedding.jpg" alt="Wedding">
+                        <p>Wedding</p>
+                    </div>
+                    <div class="event-type" onclick="selectEventType('Party')">
+                        <img src="party.jpg" alt="Party">
+                        <p>Party</p>
+                    </div>
+                    <div class="event-type" onclick="selectEventType('Engagement')">
+                        <img src="engagement.jpg" alt="Engagement">
+                        <p>Engagement</p>
+                    </div>
+                </div>
+                <footer>
+                    <!-- Footer content -->
+                    <div>
+                        <h3>Contact Us</h3>
+                        <p>Email: eventplan@gmail.com</p>
+                        <p>Phone: +91 9949895640</p>
+                        <p>Address: 123, Hyderabad, India</p>
+                    </div>
+                </footer>
+        </section>
+
+        <section id="eventsPage" class="page">
+            <h2>Events</h2>
+            <button onclick="showEventForm()">Create Event</button>
+            <div class="event-form" id="eventForm" style="display: none;">
+                <input type="text" id="eventName" placeholder="Event Name" required>
+                <input type="date" id="eventDate" required>
+                <input type="text" id="eventLocation" placeholder="Location" required>
+                <input type="time" id="eventTime" required>
+                <textarea id="eventNote" placeholder="Add notes if needed"></textarea>
+                <div id="eventTypes">
+                    <div class="event-type" onclick="selectEventType('Birthday')">
+                        <img src="birthday.jpg" alt="Birthday">
+                        <p>Birthday</p>
+                    </div>
+                    <div class="event-type" onclick="selectEventType('Wedding')">
+                        <img src="wedding.jpg" alt="Wedding">
+                        <p>Wedding</p>
+                    </div>
+                    <div class="event-type" onclick="selectEventType('Party')">
+                        <img src="party.jpg" alt="Party">
+                        <p>Party</p>
+                    </div>
+                    <div class="event-type" onclick="selectEventType('Engagement')">
+                        <img src="engagement.jpg" alt="Engagement">
+                        <p>Engagement</p>
+                    </div>
+                </div>
+                <button onclick="addEvent()">Add Event</button>
+            </div>
+            <div id="eventList">
+                <!-- Event list will go here -->
+            </div>
+        </section>
+
+        <section id="calendarPage" class="page">
+            <h2>Calendar</h2>
+            <div id="calendar">
+                <!-- Event calendar will go here -->
+            </div>
+            <div class="event-form" id="editEventForm" style="display: none;">
+                <input type="text" id="editEventName" placeholder="Event Name" required>
+                <input type="date" id="editEventDate" required>
+                <input type="text" id="editEventLocation" placeholder="Location" required>
+                <input type="time" id="editEventTime" required>
+                <textarea id="editEventNote" placeholder="Add notes if needed"></textarea>
+                <input type="hidden" id="editEventIndex">
+                <button onclick="updateEvent()">Update Event</button>
+            </div>
+        </section>
+
+        <section id="loginPage" class="page">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button type="submit" onclick="login()">Login</button>
+            </form>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
